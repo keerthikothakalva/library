@@ -4,7 +4,7 @@ var express = require('express');
 
 var router = express.Router();
 
-var db = require('../db');
+var db = require('./db');
 
 router.get('/', function (req, res) {
   db.query('SELECT * FROM books', function (err, result) {
