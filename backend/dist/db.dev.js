@@ -2,18 +2,13 @@
 
 var mysql = require('mysql2');
 
-var db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'SQL26',
-  database: 'library'
-});
-db.connect(function (err) {
+var connection = mysql.createConnection(process.env.MYSQL_URL);
+connection.connect(function (err) {
   if (err) {
     console.error("Database connection failed:", err);
   } else {
-    console.log("Connected to MySQL");
+    console.log("Connected to DB");
   }
 });
-module.exports = db;
+module.exports = connection;
 //# sourceMappingURL=db.dev.js.map
